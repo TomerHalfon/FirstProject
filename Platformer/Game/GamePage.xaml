@@ -1,0 +1,60 @@
+﻿<Page
+    x:Class="Platformer.GamePage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Platformer"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="7*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <TextBlock x:Name="DebuggerBox" Grid.Row="1" FontSize="20"/>
+        <Border BorderBrush="Transparent" BorderThickness="1" Width="1800" Height="900">
+            <Canvas x:Name="Lvl0Canvas" Width="1800" Height="900" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        </Border>
+        <Grid Grid.Row="1" Background="#7FFFE81F" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Row="1" Grid.Column="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <StackPanel Orientation="Horizontal" Grid.Row="0" VerticalAlignment="Center">
+                    <TextBlock Text="Ammo:" FontFamily="Segoe Print" FontSize="48"/>
+                    <TextBlock x:Name="ActualAmmoDisplayBox" Text="" FontFamily="Segoe Print" FontSize="48" Margin="20,0,0,0"/>
+                </StackPanel>
+            <StackPanel Orientation="Horizontal" Grid.Column="1" VerticalAlignment="Center">
+                <TextBlock Text="Score:" FontFamily="Segoe Print" FontSize="48"/>
+                    <TextBlock x:Name="ScoreDisplayTextBlock" Text="" FontFamily="Segoe Print" FontSize="48" Margin="20,0,0,0"/>
+            </StackPanel>
+            </Grid>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xE95E;" FontSize="60" VerticalAlignment="Center" />
+                <ProgressBar x:Name="HealthBar" Height="50" Width="400" Margin="20,0,0,0" Foreground="#FF7C1818"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Grid.Column="1">
+                <TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xE859;" FontSize="60" VerticalAlignment="Center"/>
+                <ProgressBar x:Name="FuelBar" Height="50" Width="400" Margin="20,0,0,0"/>
+            </StackPanel>
+        </Grid>
+        <MediaElement Name="backgroundMusicMediaElement" AutoPlay="True" IsLooping="True"/>
+        <MediaElement Name="jetPackFx" AutoPlay="False" IsLooping="False" Source="/Assets/Music/Fx/jetPack.wav" />
+        <MediaElement Name="jetPackEmptyFx" AutoPlay="False" IsLooping="False" Source="/Assets/Music/Fx/EmptyFX.mp3" />
+        <MediaElement Name="shotFx" AutoPlay="False" IsLooping="False" Source="/Assets/Music/Fx/shot.wav" />
+        <MediaElement Name="emptyShotFx" AutoPlay="False" IsLooping="False" Source="/Assets/Music/Fx/failedShot.mp3" />
+        <MediaElement Name="hitFx" AutoPlay="False" IsLooping="False" Source="/Assets/Music/Fx/hit.wav" />
+        <MediaElement Name="enemyDeath" AutoPlay="False" IsLooping="False" Source="/Assets/Music/Fx/enemyDeath.ogg" />
+        <MediaElement Name="playerHit" AutoPlay="False" IsLooping="False" Source="/Assets/Music/Fx/hit.wav" />
+        <MediaElement Name="pickUpFx" AutoPlay="False" IsLooping="False" Source="/Assets/Music/Fx/pickUp.flac" />
+        <MediaElement Name="gameOverFx" AutoPlay="False" IsLooping="False" Source="/Assets/Music/Fx/gameOver.wav" />
+    </Grid>
+
+</Page>

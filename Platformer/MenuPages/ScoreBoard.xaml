@@ -1,0 +1,87 @@
+﻿<Page
+    x:Class="Platformer.MenuPages.ScoreBoard"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Platformer.MenuPages"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <SplitView x:Name="menuSV" DisplayMode="CompactOverlay" OpenPaneLength="300" CompactPaneLength="50" HorizontalAlignment="Left">
+        <SplitView.Pane>
+            <StackPanel Background="Black">
+                <StackPanel Orientation="Horizontal">
+                    <Button x:Name="menuBtn" FontFamily="Segoe MDL2 Assets" Foreground="#FFE81F" Content ="&#xE700;" Width="50" Height="50" Click="MBtn_Click"/>
+                    <TextBlock Text="Menu" Margin="5,0,0,0" Foreground="#FFE81F" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Segoe Print" FontSize="40"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Button x:Name="HomeBtn" FontFamily="Segoe MDL2 Assets" Foreground="#FFE81F" Content ="&#xE80F;" Width="50" Height="50" Click="HomeBtn_Click"/>
+                    <TextBlock Text="Home" Margin="5,0,0,0" Foreground="#FFE81F" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Segoe Print" FontSize="30"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Button x:Name="sBtn" FontFamily="Segoe MDL2 Assets" Foreground="#FFE81F" Content ="&#xE713;" Width="50" Height="50" Click="SBtn_Click"/>
+                    <TextBlock Text="Settings" Margin="5,0,0,0" Foreground="#FFE81F" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Segoe Print" FontSize="30"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Button x:Name="muteBtn" FontFamily="Segoe MDL2 Assets" Foreground="#FFE81F" Content ="&#xE767;" Width="50" Height="50" Click="MuteBtn_Click"/>
+                    <Slider x:Name="VolumeSlider" Minimum="0" Maximum="1" StepFrequency="0.01" IsThumbToolTipEnabled="False" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Stretch" Margin="25,0,0,0" Width="200" Foreground="#FFE81F" ValueChanged="VolumeSlider_ValueChanged">
+                        <Slider.Resources>
+                            <ResourceDictionary>
+                                <ResourceDictionary.ThemeDictionaries>
+                                    <ResourceDictionary x:Key="Dark">
+                                        <SolidColorBrush x:Key="SliderThumbBackground" Color="#FFE81F"/>
+                                        <SolidColorBrush x:Key="SliderThumbBackgroundPointerOver" Color="#FFE81F" />
+                                        <SolidColorBrush x:Key="SliderThumbBackgroundPressed" Color="#FFE81F"/>
+                                        <SolidColorBrush x:Key="SliderTrackValueFill" Color="#FFE81F"/>
+                                        <SolidColorBrush x:Key="SliderTrackValueFillPointerOver" Color="#FFE81F"/>
+                                        <SolidColorBrush x:Key="SliderTrackValueFillPressed" Color="#FFE81F"/>
+                                    </ResourceDictionary>
+                                    <ResourceDictionary x:Key="Light">
+                                        <SolidColorBrush x:Key="SliderThumbBackground" Color="#FFE81F"/>
+                                        <SolidColorBrush x:Key="SliderThumbBackgroundPointerOver" Color="#FFE81F"/>
+                                        <SolidColorBrush x:Key="SliderThumbBackgroundPressed" Color="#FFE81F"/>
+                                        <SolidColorBrush x:Key="SliderTrackValueFill" Color="#FFE81F"/>
+                                        <SolidColorBrush x:Key="SliderTrackValueFillPointerOver" Color="#FFE81F"/>
+                                        <SolidColorBrush x:Key="SliderTrackValueFillPressed" Color="#FFE81F"/>
+                                    </ResourceDictionary>
+                                </ResourceDictionary.ThemeDictionaries>
+                            </ResourceDictionary>
+                        </Slider.Resources>
+                    </Slider>
+                </StackPanel>
+            </StackPanel>
+        </SplitView.Pane>
+        <SplitView.Content>
+            <Grid MinWidth="1870">
+                <Grid.Background>
+                    <ImageBrush ImageSource="/Assets/Backgrounds/ScoreBoardBackground.jpg" Stretch="UniformToFill"/>
+                </Grid.Background>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="18*"/>
+                    <RowDefinition Height="11*"/>
+                    <RowDefinition Height="79*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Text="Score Board" FontFamily="Segoe Print" Foreground="#FFE81F" FontSize="100" TextDecorations="Underline" HorizontalAlignment="Center"/>
+                <Grid x:Name="scoreGrid" Grid.Row="1" Grid.RowSpan="2">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="8*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <!--#region Table header -->
+                    <TextBlock Text="Pos" FontFamily="Segoe Print" Foreground="#FFE81F" FontSize="50" TextDecorations="Underline" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    <TextBlock Text="Player Name" FontFamily="Segoe Print" Grid.Column="1" Foreground="#FFE81F" FontSize="40" TextDecorations="Underline" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+                    <TextBlock Text="Score" FontFamily="Segoe Print" Grid.Column="2" Foreground="#FFE81F" FontSize="40" TextDecorations="Underline" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                    <MediaElement Name="backgrounMusicMediaElement" AutoPlay="True" IsLooping="True" Source="/Assets/Music/ScoreBoardBackgroundMusic.mp3" />
+                </Grid>
+            </Grid>
+        </SplitView.Content>
+    </SplitView>
+</Page>

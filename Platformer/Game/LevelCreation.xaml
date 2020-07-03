@@ -1,0 +1,52 @@
+﻿<Page
+    x:Class="Platformer.Game.LevelCreation"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Platformer.Game"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <AppBar x:Name="appBar" VerticalAlignment="Bottom" IsOpen="True">
+            <Grid >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/> 
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <StackPanel Orientation="Horizontal" Grid.Column="4">
+                <ComboBox x:Name="backgroundComboBox" Width="200" Height="50" Margin="0,0,10,0"/>
+                    <Button x:Name="backgroundChangeBtn" Width="100" Height="50" Click="BackgroundChangeBtn_Click">Change</Button>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Grid.Column="3">
+                    <ComboBox x:Name="enemiesComboBox" Width="200" Height="50" Margin="0,0,10,0"/>
+                    <Button x:Name="enemiesAddBtn" Width="100" Height="50" Click="EnemiesAddBtn_Click" >Add</Button>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Grid.Column="2">
+                    <ComboBox x:Name="fixedObjectsComboBox" Width="200" Height="50" Margin="0,0,10,0"/>
+                    <Button x:Name="fixedObjectsAddBtn" Width="100" Height="50" Click="FixedObjectsAddBtn_Click" >Add</Button>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Grid.Column="1">
+                    <ComboBox x:Name="blockComboBox" Width="200" Height="50" Margin="0,0,10,0"/>
+                    <Button x:Name="blockAddBtn" Width="100" Height="50" Click="BlockAddBtn_Click">Add</Button>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Grid.Column="0">
+                    <Button x:Name="playerPositionBtn" Height="50" Click="PlayerPositionBtn_Click">Set Player Starting Position</Button>
+                    <Button x:Name="playBtn" Height="50" Margin="10,0,0,0" Click="PlayBtn_Click">Play</Button>
+                    <Button x:Name="newBtn" Height="50" Margin="10,0,0,0" Click="NewBtn_Click">New</Button>
+                    <Button x:Name="homeBtn" Height="50" Margin="10,0,0,0" Click="HomeBtn_Click">Home</Button>
+                </StackPanel>
+            </Grid>
+        </AppBar>
+        <Canvas x:Name="canvas" Width="1800" Height="900" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,20,0,0"
+                            PointerPressed="Canvas_OnMouseClick" 
+            PointerMoved="Canvas_OnMouseMove"
+            PointerReleased="Canvas_OnMouseUnClick"
+            PointerExited="Canvas_OnMouseUnClick"
+                RightTapped="Canvas_RightTapped"/>
+    </Grid>
+</Page>
